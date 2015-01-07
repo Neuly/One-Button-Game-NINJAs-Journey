@@ -8,8 +8,8 @@ import processing.core.*;
  */
 public class OneButtonNinjaGame extends PApplet {
 	private static final long serialVersionUID = 1L;
-	private static final int WIDTH = 750;
-	private static final int HEIGHT = 750;
+	private static final int WIDTH = 1000;
+	private static final int HEIGHT = 500;
 
 	private Model model;
 	private View view;
@@ -20,7 +20,7 @@ public class OneButtonNinjaGame extends PApplet {
 				+ System.getProperty("file.separator") + "images"
 				+ System.getProperty("file.separator");
 		view = new View(this, WIDTH, HEIGHT, PATH_TO_IMAGES);
-		model = new Model(this,PATH_TO_IMAGES);
+		model = new Model(this,PATH_TO_IMAGES, WIDTH, HEIGHT);
 	}
 
 	private boolean was_not_pressed_before;
@@ -32,6 +32,7 @@ public class OneButtonNinjaGame extends PApplet {
 		if (mousePressed) {
 			view.mousePressed();
 			model.mousePressedEvent();
+			model.paused(view.game_paused());
 		}
 	}
 

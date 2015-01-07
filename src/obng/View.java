@@ -43,13 +43,28 @@ public class View {
 			show_game_screen(figures);
 			break;
 		}
-		System.out.println("default show screem " + show_screen);
 	}
 
 	private void show_game_screen(LinkedList<Figure> figures) {
-		// TODO Auto-generated method stub
+		Figure current_figure;
+		painter.background(255);
+		while (!figures.isEmpty()) {
+			current_figure = figures.pop();
+			// draw the line
+			if (current_figure.type.compareTo("line") == 0) {
+				painter.line(0, painter.getHeight() - 25, painter.getWidth(),
+						painter.getHeight() - 25);
+			} else
+			// draw text if necessary
+			if (current_figure.type.compareTo("text") == 0) {
 
-		
+			}
+			// draw the corresponding image
+			else
+				painter.image(current_figure.figure, current_figure.x,
+						current_figure.y);
+		}
+
 	}
 
 	private void show_pause_screen() {

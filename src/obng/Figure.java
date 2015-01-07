@@ -29,10 +29,28 @@ public class Figure {
 		this.type = _type;
 		this.text_container = _text_container;
 	}
-	
-	public void set_xy(int x, int y) {
-		this.x = x;
-		this.y = y;
+
+	public void set_xy(int _x, int _y) {
+		this.x = _x;
+		this.y = _y;
+	}
+
+	// copies a figure
+	public Figure(Figure to_copy_from) {
+		this.x = to_copy_from.x;
+		this.y = to_copy_from.y;
+		this.figure = to_copy_from.figure;
+		this.type = to_copy_from.type;
+		this.text_container = to_copy_from.text_container;
+	}
+
+	public void reduce_x_by(int s) {
+		this.x = this.x - s;
+		System.out.println(type + " reduced to " + x);
+	}
+
+	public void reduce_y_by(int s) {
+		this.y = this.y - s;
 	}
 
 }
