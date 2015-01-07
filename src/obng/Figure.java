@@ -11,22 +11,28 @@ import processing.core.*;
 public class Figure {
 
 	public int x;
-	
+
 	public int y;
-	
+
 	public PImage figure;
-	
+
 	public String type;
-	
+
 	public String text_container;
-	
-	public Figure (PApplet p, int _x, int _y, String path_to_figure, String _type, String _text_container) {
+
+	public Figure(PApplet p, int _x, int _y, String path_to_figure,
+			String _type, String _text_container) {
 		this.x = _x;
 		this.y = _y;
-		this.figure = p.loadImage(path_to_figure);
+		if (path_to_figure != null)
+			this.figure = p.loadImage(path_to_figure);
 		this.type = _type;
 		this.text_container = _text_container;
 	}
 	
-}
+	public void set_xy(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
 
+}
