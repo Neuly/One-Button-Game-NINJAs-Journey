@@ -10,9 +10,9 @@ import processing.core.PImage;
  */
 public class Actor extends Coordinate {
 
-	private PImage representation;
+	private ListOfImages representation;
 
-	private String type;
+	private Type_of_actor type;
 
 	/**
 	 * Constructor for an Actor
@@ -28,8 +28,8 @@ public class Actor extends Coordinate {
 	 * @param y_coordinate
 	 *            coordinate on the y axis of the actor
 	 */
-	public Actor(PImage _figure, String _type_of_actor, int x_coordinate,
-			int y_coordinate) {
+	public Actor(ListOfImages _figure, Type_of_actor _type_of_actor,
+			int x_coordinate, int y_coordinate) {
 		super(x_coordinate, y_coordinate);
 
 		representation = _figure;
@@ -39,11 +39,11 @@ public class Actor extends Coordinate {
 
 	/** The visual representation of the current actor needs to */
 	public PImage act() {
-		return representation;
+		return representation.next();
 	}
 
 	/** returns what kind of actor this object is */
-	public String what_type_of_actor() {
+	public Type_of_actor what_type_of_actor() {
 		return type;
 	}
 

@@ -1,5 +1,7 @@
 package obng.datastructures;
 
+import java.util.LinkedList;
+
 import processing.core.*;
 
 /**
@@ -17,22 +19,16 @@ public class Figure extends Actor {
 	/**
 	 * Constructor for the Figure
 	 * 
-	 * @param _figure
-	 *            - a visual PImage Processing representation of an actor
-	 * @param _x
-	 *            - the x position
-	 * @param _y
-	 *            - the y position
-	 * @param _type
-	 *            - the type of object
-	 * @param _text_line
-	 *            - the text line of the text_container
-	 * @param _text_size
-	 *            - the text size of the text_container
+	 * @param image_list, that belong to one actor
+	 * @param _x - the x position
+	 * @param _y - the y position
+	 * @param _type - the type of object
+	 * @param _text_line - the text line of the text_container
+	 * @param _text_size - the text size of the text_container
 	 */
-	public Figure(PImage _figure, int _x, int _y, String _type,
-			String _text_line, int _text_size) {
-		super(_figure, _type, _x, _y);
+	public Figure(ListOfImages image_list, int _x, int _y,
+			Type_of_actor toa, String _text_line, int _text_size) {
+		super(image_list, toa, _x, _y);
 
 		this.text_container = new Text(_text_line, _text_size);
 	}

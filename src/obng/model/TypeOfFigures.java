@@ -17,7 +17,7 @@ public class TypeOfFigures<Type_of_actor, Figure> extends
 	
 	/** Constructor for the agency */
 	public TypeOfFigures() {
-		super();		
+		super();
 	}
 
 }

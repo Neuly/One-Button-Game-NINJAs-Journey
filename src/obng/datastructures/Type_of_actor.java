@@ -10,7 +10,7 @@ package obng.datastructures;
  * 
  * @author Neuly
  */
-public class Type_of_actor extends Object {
+public class Type_of_actor {
 	
 	private String type;
 	
@@ -28,8 +28,9 @@ public class Type_of_actor extends Object {
 	}
 	
 	/** uses thenumber_placeholder as hash_return */
-	public int hash_code() {
+	@Override
+	public int hashCode() {
 		return number_placeholder;
 	}
-
+	
 }
