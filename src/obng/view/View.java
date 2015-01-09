@@ -1,7 +1,8 @@
-package obng;
+package obng.view;
 
 import java.util.LinkedList;
 
+import obng.datastructures.Figure;
 import processing.core.*;
 
 public class View {

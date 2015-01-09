@@ -1,10 +1,13 @@
 package obng;
 
+import obng.model.Model;
+import obng.view.View;
 import processing.core.*;
 
 /**
- * @author Phil
+ * This is the main class of the One Button Game, Ninja Beans Journey 
  * 
+ * @author Neuly
  */
 public class OneButtonNinjaGame extends PApplet {
 	private static final long serialVersionUID = 1L;
@@ -23,8 +26,6 @@ public class OneButtonNinjaGame extends PApplet {
 		model = new Model(this,PATH_TO_IMAGES, WIDTH, HEIGHT);
 	}
 
-	private boolean was_not_pressed_before;
-
 	/** draws everything */
 	public void draw() {
 		view.draw(model.figures_on_screen());
@@ -36,16 +37,8 @@ public class OneButtonNinjaGame extends PApplet {
 		}
 	}
 
-	public void mouseReleased() {
-		// boolean valid = model.mouseReleasedEvent();
-		// view.writeValid(valid);
-		// view.writeTurn(model.getTurn());
-		// view.writeWin(model.checkWinState());
-	}
 
-	/**
-	 * @param args
-	 */
+	/** Starts the applet */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PApplet.main(new String[] { "--present", "obng.OneButtonNinjaGame" });

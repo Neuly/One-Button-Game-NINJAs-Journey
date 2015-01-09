@@ -1,7 +1,8 @@
-package obng;
+package obng.model;
 
 import java.util.LinkedList;
 
+import obng.datastructures.Figure;
 import processing.core.*;
 
 public class Model {
