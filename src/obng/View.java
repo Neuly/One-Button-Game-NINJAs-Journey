@@ -10,6 +10,7 @@ public class View {
 	private int height;
 	private PFont font;
 	private String PATH_TO_IMAGES;
+	private int linecounter;
 
 	/**
 	 * a variable with 3 values - 0, show start screen, 1, show game, 2, game
@@ -25,6 +26,7 @@ public class View {
 		painter.size(width, height);
 		show_screen = 0;
 		PATH_TO_IMAGES = _path_to_images;
+		linecounter = 0;
 	}
 
 	/**
@@ -54,6 +56,13 @@ public class View {
 			if (current_figure.type.compareTo("line") == 0) {
 				painter.line(0, painter.getHeight() - 25, painter.getWidth(),
 						painter.getHeight() - 25);
+
+				
+				painter.line(0 + (linecounter * 4), height - 25, 5 + (linecounter * 4),
+						width - 25);
+				if (current_figure.x == 1)
+					linecounter++;
+				linecounter = linecounter % 5;
 			} else
 			// draw text if necessary
 			if (current_figure.type.compareTo("text") == 0) {

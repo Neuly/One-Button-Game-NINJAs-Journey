@@ -28,10 +28,12 @@ public class Model {
 	private boolean paused;
 	private int show_new_enemy_counter;
 	private int speed;
+	private Figure line;
 
 	public Model(PApplet painter, String path_to_files, int _width, int _heigth) {
 		speed = 5;
 		paused = true;
+		line = new Figure(painter, 0, 25, null, "line", "");
 		this.show_ninja_counter = 0;
 		this.show_new_enemy_counter = 1;
 		this.width = _width;
@@ -88,19 +90,24 @@ public class Model {
 			if (problems.size() >= 1) {
 				
 				show_new_enemy_counter++;
+				System.out.println("speed " + speed + " show_new_enemy_counter " + show_new_enemy_counter);
 				if (show_new_enemy_counter % speed != 0) {
+					line.x = 0;
 					return problems;
 				}
-				show_new_enemy_counter = 0;
 				
+				line.x = 1;
+				show_new_enemy_counter = 0;
+			
 				// move everyone about 10
-				for (int i = 0; i < problems.size(); i++) {
+				for (int i = 0; i < problems.size(); i++) 
 					problems.get(i).reduce_x_by(10);
-				}
+				
 
 
 				// add new enemy or problem
-				if (show_new_enemy_counter % (int) Math.abs(speed /10)) {
+				if (width - problems.peek().x >= width - 300 ) {
+					
 					int which_one = (int) Math.abs(Math.random() * 3);
 					switch (which_one) {
 					case 0:
@@ -120,9 +127,12 @@ public class Model {
 					default:
 						break;
 					}
+					
+					
 				}
-
+				
 			} else {
+				System.out.println("Adding default zombie");
 				Figure another_zombie_bean = new Figure(zombie);
 				another_zombie_bean.set_xy(width, HEIGHT_OF_A_FIGURE - 175);
 				problems.push(another_zombie_bean);
@@ -173,7 +183,7 @@ public class Model {
 	}
 
 	private Figure screen_line() {
-		return (new Figure(painter, -1, 25, null, "line", ""));
+		return (line);
 	}
 
 	/** button pressed */
