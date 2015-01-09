@@ -1,4 +1,4 @@
-package obng.datastructures;
+package obng.model.datastructures;
 
 /**
  * A method that contains a String text representation and 

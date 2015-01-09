@@ -1,4 +1,4 @@
-package obng.datastructures;
+package obng.model.datastructures;
 
 /**
  * 

@@ -2,8 +2,8 @@ package obng.model;
 
 import java.util.LinkedList;
 
-import obng.datastructures.Figure;
-import obng.datastructures.Timer;
+import obng.model.datastructures.Figure;
+import obng.model.datastructures.Timer;
 import processing.core.PApplet;
 
 /**
@@ -45,17 +45,23 @@ public class TheMold extends Agency {
 	 * @return LinkedList<Figure>
 	 */
 	public LinkedList<Figure> get_moldier() {
-		if (!time_for_new_enemy.is_it_time() || list_of_figures.size() >= 3)
-			return list_of_figures;
 
-		if (list_of_figures.isEmpty()) {
+		if (time_for_new_enemy.is_it_time() || list_of_figures.isEmpty()) {
 			list_of_figures.add(getRandomEnemy());
 			return list_of_figures;
 		}
-
 		for (Figure local_figure : list_of_figures)
 			local_figure.move_in_x_axis(-5);
 
+		if (list_of_figures.size() >= 3)
+			return list_of_figures;
+
 		return list_of_figures;
 	}
+
+	/** @see Timer */
+	public void pause_or_continue(boolean status_paused) {
+		time_for_new_enemy.pause_or_continue(status_paused);
+	}
+
 }

@@ -1,4 +1,4 @@
-package obng.datastructures;
+package obng.model.datastructures;
 
 /**
  * Acutally only a wrapped String currently - maybe I will extend it. However I need

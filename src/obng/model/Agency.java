@@ -3,7 +3,7 @@ package obng.model;
 import java.io.File;
 import java.util.LinkedList;
 
-import obng.datastructures.*;
+import obng.model.datastructures.*;
 import processing.core.PApplet;
 import processing.core.PImage;
 

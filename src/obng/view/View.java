@@ -2,79 +2,40 @@ package obng.view;
 
 import java.util.LinkedList;
 
-import obng.datastructures.Figure;
+import javax.imageio.ImageWriter;
+
+import obng.model.datastructures.Actor;
+import obng.model.datastructures.Figure;
+import obng.view.datastructures.Background;
+import obng.view.datastructures.ImageDrawer;
+import obng.view.datastructures.TextPainter;
 import processing.core.*;
 
+/**
+ * The View Class
+ * 
+ * @author Neuly
+ */
 public class View {
-	private PApplet painter;
-	private int width;
-	private int height;
-	private PFont font;
-	private String PATH_TO_IMAGES;
-	private int linecounter;
 
-	/**
-	 * a variable with 3 values - 0, show start screen, 1, show game, 2, game
-	 * paused
-	 */
-	public int show_screen;
+	private ImageDrawer imgWri;
+	private TextPainter txtPai;
+	private Background back;
 
-	public View(PApplet painter, int width, int height, String _path_to_images) {
-		this.painter = painter;
-		this.width = width;
-		this.height = height;
-		font = painter.createFont("Comic Sans MS", 16, true);
-		painter.size(width, height);
-		show_screen = 0;
-		PATH_TO_IMAGES = _path_to_images;
-		linecounter = 0;
+	/** Construct the view class */
+	public View(PApplet painter, int width, int height) {
+		super();
+		imgWri = new ImageDrawer(painter);
+		txtPai = new TextPainter(painter);
+		back = new Background(painter);
 	}
 
-	/**
-	 * draws the frame of the chess board and the board itself - without the
-	 * players
-	 */
-	public void draw(LinkedList<Figure> figures) {
-		switch (show_screen) {
-		case 0:
-			show_start_screen();
-			break;
-		case 2:
-			show_pause_screen();
-			break;
-		default:
-			show_game_screen(figures);
-			break;
+	/** draws the game screen */
+	public void draw(LinkedList<Actor> list_of_actors) {
+		back.draw();
+		for (final Actor anActor : list_of_actors) {
+
 		}
-	}
-
-	private void show_game_screen(LinkedList<Figure> figures) {
-		Figure current_figure;
-		painter.background(255);
-		while (!figures.isEmpty()) {
-			current_figure = figures.pop();
-			// draw the line
-			if (current_figure.type.compareTo("line") == 0) {
-				painter.line(0, painter.getHeight() - 25, painter.getWidth(),
-						painter.getHeight() - 25);
-
-				
-				painter.line(0 + (linecounter * 4), height - 25, 5 + (linecounter * 4),
-						width - 25);
-				if (current_figure.x == 1)
-					linecounter++;
-				linecounter = linecounter % 5;
-			} else
-			// draw text if necessary
-			if (current_figure.type.compareTo("text") == 0) {
-
-			}
-			// draw the corresponding image
-			else
-				painter.image(current_figure.figure, current_figure.x,
-						current_figure.y);
-		}
-
 	}
 
 	private void show_pause_screen() {
