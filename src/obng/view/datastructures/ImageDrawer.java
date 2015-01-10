@@ -2,6 +2,7 @@ package obng.view.datastructures;
 
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.core.PImage;
 
 /**
  * The Image Drawer draws PImages at given positions to the screen

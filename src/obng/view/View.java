@@ -12,7 +12,7 @@ import obng.view.datastructures.TextPainter;
 import processing.core.*;
 
 /**
- * The View Class
+ * The View Class, sorry, here I needed to use more than one Object
  * 
  * @author Neuly
  */
@@ -34,7 +34,8 @@ public class View {
 	public void draw(LinkedList<Actor> list_of_actors) {
 		back.draw();
 		for (final Actor anActor : list_of_actors) {
-
+			imgWri.drawAt(anActor.act(), anActor.move_in_x_axis(0),
+					anActor.move_in_y_axis(0));
 		}
 	}
 

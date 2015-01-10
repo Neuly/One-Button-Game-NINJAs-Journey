@@ -16,7 +16,7 @@ import processing.core.PImage;
  */
 public class ListOfImages extends LinkedList<PImage> {
 
-	private Iterator<PImage> i = this.iterator();
+	private Iterator<PImage> i;
 
 	/** Empty Constructor */
 	public ListOfImages() {
@@ -37,13 +37,14 @@ public class ListOfImages extends LinkedList<PImage> {
 		for (final File fileEntry : folder.listFiles()) {
 			String path_to_actor = fileEntry.getAbsolutePath();
 			// blame me ;)
-			String name_of_object = fileEntry.getName().substring(0, 5);
+			String name_of_object = fileEntry.getName().substring(0, 6);
 			PImage local_pimage = p.loadImage(path_to_actor);
 
 			if (name_of_object.compareTo(_file_pattern) == 0)
 				add(local_pimage);
 
 		}
+		i = this.iterator();
 	}
 
 	/**
@@ -53,6 +54,11 @@ public class ListOfImages extends LinkedList<PImage> {
 		if (!i.hasNext())
 			i = this.iterator();
 		return i.next();
+	}
+	
+	/** reset the iterator */
+	public void reset_iterator() {
+		i = this.iterator();
 	}
 
 }

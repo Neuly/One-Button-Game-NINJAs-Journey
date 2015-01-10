@@ -18,10 +18,10 @@ public class Model extends TheMold {
 
 	public Model(PApplet painter, String _path_to_files, int _width, int _heigth) {
 		super(_path_to_files + "images" + System.getProperty("file.separator"),
-				painter, _width, 88 + 25, 200);
+				painter, _width, _heigth - 200, 200);
 		bean = new TheNinja(_path_to_files + "ninja"
 				+ System.getProperty("file.separator"), new Type_of_actor(
-				"Ninja running", 3), 100, 88 + 25, painter);
+				"Ninja running", 3), 100, _heigth - 200, painter);
 	}
 
 	/**

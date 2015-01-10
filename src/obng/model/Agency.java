@@ -37,22 +37,26 @@ public class Agency extends Counter {
 		ListOfImages local_pimages_list = new ListOfImages();
 		String name_old_object = "";
 		File folder = new File(path);
+		boolean firstrun = true;
 		for (final File fileEntry : folder.listFiles()) {
 			String path_to_actor = fileEntry.getAbsolutePath();
 			// blame me ;)
-			String name_of_object = fileEntry.getName().substring(0, 5);
+			String name_of_object = fileEntry.getName().substring(0, 6);
 			PImage local_pimage = p.loadImage(path_to_actor);
-
+			if (firstrun) {
+				firstrun = false;
+				name_old_object = name_of_object;
+			}
 			if (name_of_object.compareTo(name_old_object) != 0) {
 				name_old_object = name_of_object;
 				Type_of_actor local_toa = new Type_of_actor(name_of_object,
 						up());
+				local_pimages_list.reset_iterator();
 				Figure local_figure = new Figure(local_pimages_list, start_x,
 						start_y, local_toa, "", 0);
 
 				types.put(local_toa, local_figure);
 				local_pimages_list = new ListOfImages();
-				continue; // no else allowed
 			}
 
 			local_pimages_list.add(local_pimage);

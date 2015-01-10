@@ -41,6 +41,8 @@ public class Actor extends Coordinate {
 
 	/** The visual representation of the current actor needs to */
 	public PImage act() {
+		System.out.println("Represantation size; " + representation.size());
+		System.out.println("Type of Actor:       " + type.which());
 		return representation.next();
 	}
 

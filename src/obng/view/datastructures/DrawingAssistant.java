@@ -2,6 +2,7 @@ package obng.view.datastructures;
 
 import processing.core.PApplet;
 import processing.core.PFont;
+import processing.core.PImage;
 
 /**
  * The Drawing Assistant - A Wrapper for the font and the papplet painter.
@@ -39,6 +40,11 @@ public class DrawingAssistant extends Scale {
 	public void resize() {
 		painter.setSize(width_of_applet(), heigth_of_applet());
 		painter.setLocation(50, 50);
+	}
+
+	/** draws a given PImage at a specified postioion */
+	public void drawAt(PImage act, int x_coordinateint, int y_coordinate) {
+		painter.image(act, x_coordinateint, y_coordinate);
 	}
 
 }
