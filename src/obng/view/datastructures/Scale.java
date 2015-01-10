@@ -20,7 +20,7 @@ public class Scale {
 		return x;
 	}
 
-	public int heigth_of_applet() {
+	public int height_of_applet() {
 		return y;
 	}
 

@@ -2,6 +2,7 @@ package obng;
 
 import obng.model.Model;
 import obng.view.View;
+import obng.view.datastructures.GameStatus;
 import processing.core.*;
 
 /**
@@ -21,14 +22,15 @@ public class OneButtonNinjaGame extends PApplet {
 	public void setup() {
 		String PATH_TO_IMAGES = System.getProperty("user.dir")
 				+ System.getProperty("file.separator");
-		view = new View(this, WIDTH, HEIGHT);
-		model = new Model(this, PATH_TO_IMAGES, WIDTH, HEIGHT);
+		GameStatus gs = new GameStatus();
+		view = new View(this, WIDTH, HEIGHT, PATH_TO_IMAGES, gs);
+		model = new Model(this, PATH_TO_IMAGES, WIDTH, HEIGHT, gs);
 	}
 
 	/** draws everything */
 	public void draw() {
 		view.draw(model.figures_on_screen(1, false, false));
-
+		
 		if (mousePressed) {
 			// view.mousePressed();
 			// model.pause_or_continue(view.game_paused());
@@ -37,7 +39,6 @@ public class OneButtonNinjaGame extends PApplet {
 
 	/** Starts the applet */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		PApplet.main(new String[] { "--present", "obng.OneButtonNinjaGame" });
 	}
 

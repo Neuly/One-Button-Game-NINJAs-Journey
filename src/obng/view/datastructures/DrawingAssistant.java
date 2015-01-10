@@ -38,7 +38,7 @@ public class DrawingAssistant extends Scale {
 
 	/** resizes the object with every draw action */
 	public void resize() {
-		painter.setSize(width_of_applet(), heigth_of_applet());
+		painter.setSize(width_of_applet(), height_of_applet());
 		painter.setLocation(50, 50);
 	}
 
@@ -46,5 +46,19 @@ public class DrawingAssistant extends Scale {
 	public void drawAt(PImage act, int x_coordinateint, int y_coordinate) {
 		painter.image(act, x_coordinateint, y_coordinate);
 	}
+	
+	/** draws a given PImage at a specified postioion */
+	public void drawAt(PImage act, int x_coordinateint, int y_coordinate, int width, int height) {
+		painter.image(act, x_coordinateint, y_coordinate, width, height);
+	}
 
+	/** paints some text to the papplet */
+	public void text(String string, int i, int j) {
+		painter.text(string, i, j);
+	}
+
+	/** reads an Image into the painter */
+	public PImage loadImage(String filename) {
+		return painter.loadImage(filename);
+	}
 }

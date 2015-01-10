@@ -31,17 +31,26 @@ public class Background extends DrawingAssistant {
 	public void draw() {
 		setBackground(255);
 		resize();
-		horizontal_line(heigth_of_applet() - 25, 0, width_of_applet());
+		horizontal_line(height_of_applet() - 25, 0, width_of_applet());
 
 		if (internal_timer.is_it_time_on_clock(0))
 			seperation.up();
 
 		for (int i = 0; i < width_of_applet(); i += 25) {
-			vertical_line(25 + i - seperation.times(), heigth_of_applet() - 25,
-					heigth_of_applet() - 0);
+			vertical_line(25 + i - seperation.times(), height_of_applet() - 25,
+					height_of_applet() - 0);
 		}
 
 		if (internal_timer.is_it_time_on_clock(1))
 			seperation.reset();
+
+		vertical_line(width_of_applet() - 40, 10, 50);
+		vertical_line(width_of_applet() - 55, 10, 50);
+
+	}
+
+	/** sets the internal timer to false */
+	public void paused(boolean status_pause) {
+		internal_timer.pause_or_continue(status_pause);
 	}
 }

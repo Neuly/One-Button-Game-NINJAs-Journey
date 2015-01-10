@@ -6,8 +6,13 @@ import javax.imageio.ImageWriter;
 
 import obng.model.datastructures.Actor;
 import obng.model.datastructures.Figure;
+import obng.model.datastructures.MultipleTimer;
+import obng.model.datastructures.Timer;
 import obng.view.datastructures.Background;
+import obng.view.datastructures.GameStatus;
 import obng.view.datastructures.ImageDrawer;
+import obng.view.datastructures.Mouse;
+import obng.view.datastructures.Screen;
 import obng.view.datastructures.TextPainter;
 import processing.core.*;
 
@@ -16,47 +21,39 @@ import processing.core.*;
  * 
  * @author Neuly
  */
-public class View {
+public class View extends Mouse {
 
-	private ImageDrawer imgWri;
-	private TextPainter txtPai;
-	private Background back;
+	private Screen game;
 
-	/** Construct the view class */
-	public View(PApplet painter, int width, int height) {
-		super();
-		imgWri = new ImageDrawer(painter, width, height);
-		txtPai = new TextPainter(painter, width, height);
-		back = new Background(painter, width, height);
+	private GameStatus status;
+
+	private String path_to_screens;
+
+	/** Construct the view class 
+	 * @param _gs */
+	public View(PApplet _painter, int _width, int _height,String _path_to_screens, GameStatus _gs) {
+		super(_painter, _width, _height);
+		game = new Screen(_painter, _width, _height);
+		status = _gs;
+		path_to_screens = _path_to_screens;
 	}
 
 	/** draws the game screen */
 	public void draw(LinkedList<Actor> list_of_actors) {
-		back.draw();
-		for (final Actor anActor : list_of_actors) {
-			imgWri.drawAt(anActor.act(), anActor.move_in_x_axis(0),
-					anActor.move_in_y_axis(0));
+		if (status.startscreen()) {
+			game.draw_start_screen(path_to_screens);
+			return;
 		}
-	}
-
-	private void show_pause_screen() {
-		// painter.fill(255, 255, 255);
-		// painter.stroke(0, 0, 0);
-		// painter.rect(0, 0, width, height);
-		// painter.fill(255, 255, 255);
-		// painter.textFont(font, 36);
-		// painter.textAlign(PApplet.CENTER);
-		// painter.text("paused", width / 2, height / 2);
-	}
-
-	private void show_start_screen() {
-		//
-		// // TODO Auto-generated method stub
-		// PImage start_screen1 = painter.loadImage(PATH_TO_IMAGES
-		// + "startscreen2.JPG");
-		//
-		// painter.image(start_screen1, 0, 0, width, height);
-
+		if (status.gamespaused()) {
+			game.draw_paused(null);
+			return;
+		}
+		mouse_pressed();
+		if (mouse_sets_pause()) {
+			game.draw_paused(list_of_actors.pop());
+			return;
+		}
+		game.draw_screen(list_of_actors);
 	}
 
 }

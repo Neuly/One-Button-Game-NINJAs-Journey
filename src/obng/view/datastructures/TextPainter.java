@@ -15,4 +15,9 @@ public class TextPainter extends DrawingAssistant {
 		super(_painter, _width, _heigth);
 	}
 
+	/** writes a text to the applet */
+	public void writeText(String string, int i, int j) {
+		text(string, i, j);
+	}
+
 }
