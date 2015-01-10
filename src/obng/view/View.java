@@ -25,10 +25,9 @@ public class View {
 	/** Construct the view class */
 	public View(PApplet painter, int width, int height) {
 		super();
-		painter.setSize(width, height);
-		imgWri = new ImageDrawer(painter);
-		txtPai = new TextPainter(painter);
-		back = new Background(painter);
+		imgWri = new ImageDrawer(painter, width, height);
+		txtPai = new TextPainter(painter, width, height);
+		back = new Background(painter, width, height);
 	}
 
 	/** draws the game screen */

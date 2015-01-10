@@ -11,8 +11,8 @@ import processing.core.PFont;
 public class TextPainter extends DrawingAssistant {
 
 	/** Construct the Text Painter */
-	public TextPainter(PApplet _painter) {
-		super(_painter);
+	public TextPainter(PApplet _painter, int _width, int _heigth) {
+		super(_painter, _width, _heigth);
 	}
 
 }

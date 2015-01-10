@@ -60,10 +60,8 @@ public class Agency extends Counter {
 		}
 	}
 
-	/**
-	 * returns a random Enemy
-	 */
-	public Figure getRandomEnemy() {
+	/** returns a random Enemy */
+	public Figure newRandomEnemy() {
 		int random_int = (int) (Math.random() * times());
 		Type_of_actor local_toa = new Type_of_actor("", random_int);
 		return (new Figure(types.get(local_toa)));

@@ -1,6 +1,9 @@
 package obng.view.datastructures;
 
+import java.util.Set;
+
 import obng.model.datastructures.Counter;
+import obng.model.datastructures.MultipleTimer;
 import obng.model.datastructures.Timer;
 import processing.core.PApplet;
 
@@ -11,27 +14,34 @@ import processing.core.PApplet;
  */
 public class Background extends DrawingAssistant {
 
-	private Timer internal_timer;
+	private MultipleTimer internal_timer;
 
 	private Counter seperation;
 
 	/** Construct the Text Painter */
-	public Background(PApplet _painter) {
-		super(_painter);
-		// reset the line every 10 ticks
-		internal_timer = new Timer(10);
+	public Background(PApplet _painter, int _width, int _heigth) {
+		super(_painter, _width, _heigth);
+		Timer local_timer_array[] = { new Timer(1), new Timer(25) };
+		internal_timer = new MultipleTimer(local_timer_array);
 		seperation = new Counter(0);
+
 	}
 
 	/** Draws the background */
 	public void draw() {
+		setBackground(255);
+		resize();
+		horizontal_line(heigth_of_applet() - 25, 0, width_of_applet());
 
-		horizontal_line(height() - 25, 0, width()); // ground line
-
-		if (internal_timer.is_it_time())
+		if (internal_timer.is_it_time_on_clock(0))
 			seperation.up();
 
-		vertical_line(25, 25, 0);
+		for (int i = 0; i < width_of_applet(); i += 25) {
+			vertical_line(25 + i - seperation.times(), heigth_of_applet() - 25,
+					heigth_of_applet() - 0);
+		}
 
+		if (internal_timer.is_it_time_on_clock(1))
+			seperation.reset();
 	}
 }

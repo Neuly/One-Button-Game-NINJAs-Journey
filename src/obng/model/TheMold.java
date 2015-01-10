@@ -47,7 +47,7 @@ public class TheMold extends Agency {
 	public LinkedList<Figure> get_moldier() {
 
 		if (time_for_new_enemy.is_it_time() || list_of_figures.isEmpty()) {
-			list_of_figures.add(getRandomEnemy());
+			list_of_figures.add(newRandomEnemy());
 			return list_of_figures;
 		}
 		for (Figure local_figure : list_of_figures)

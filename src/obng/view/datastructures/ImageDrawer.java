@@ -10,9 +10,11 @@ import processing.core.PFont;
  */
 public class ImageDrawer extends DrawingAssistant {
 
-	/** Construct the Text Painter */
-	public ImageDrawer(PApplet _painter) {
-		super(_painter);
+	/**
+	 * Construct the Text Painter
+	 */
+	public ImageDrawer(PApplet _painter, int _width, int _height) {
+		super(_painter, _width, _height);
 	}
 
 }

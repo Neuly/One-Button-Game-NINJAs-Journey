@@ -11,8 +11,8 @@ import processing.core.*;
  */
 public class OneButtonNinjaGame extends PApplet {
 	private static final long serialVersionUID = 1L;
-	private static final int WIDTH = 1000;
-	private static final int HEIGHT = 500;
+	private final int WIDTH = 1000;
+	private final int HEIGHT = 500;
 
 	private Model model;
 	private View view;
@@ -28,10 +28,10 @@ public class OneButtonNinjaGame extends PApplet {
 	/** draws everything */
 	public void draw() {
 		view.draw(model.figures_on_screen(1, false, false));
-		
+
 		if (mousePressed) {
-//			view.mousePressed();
-//			model.pause_or_continue(view.game_paused());
+			// view.mousePressed();
+			// model.pause_or_continue(view.game_paused());
 		}
 	}
 
