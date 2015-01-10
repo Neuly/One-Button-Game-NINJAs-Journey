@@ -20,7 +20,6 @@ public class OneButtonNinjaGame extends PApplet {
 	/** constructor */
 	public void setup() {
 		String PATH_TO_IMAGES = System.getProperty("user.dir")
-				+ System.getProperty("file.separator") + "images"
 				+ System.getProperty("file.separator");
 		view = new View(this, WIDTH, HEIGHT);
 		model = new Model(this, PATH_TO_IMAGES, WIDTH, HEIGHT);
@@ -29,10 +28,10 @@ public class OneButtonNinjaGame extends PApplet {
 	/** draws everything */
 	public void draw() {
 		view.draw(model.figures_on_screen(1, false, false));
-
+		
 		if (mousePressed) {
-			view.mousePressed();
-			model.pause_or_continue(view.game_paused());
+//			view.mousePressed();
+//			model.pause_or_continue(view.game_paused());
 		}
 	}
 
