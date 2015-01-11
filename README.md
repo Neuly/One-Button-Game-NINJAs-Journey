@@ -1,12 +1,12 @@
 # One-Button-Game-NINJAs-Journey
 
-This is a one button game using processing 2. I use the processing core library for a small Java project. For more details about processing, please visit their website; https://processing.org/
+This is a one button game using processing 2. We use the processing core library for a small Java project. For more details about processing, please visit their website; https://processing.org/
 
 This is actually a prototype for the class of User Interface Design in the winter semester of 2014/15 at the University of Salzburg. The challenge was to develop a game, that can be played by using just one button. Due to the fact, that processing offers this really handsome way to see, when you press the mouse, by just setting a boolean value to true, I am using this variable to do so.
 
 ## About the coding standard
 
-The code seems to be weired and undhandy and you are probably thinking, their are better ways to do so. However, I tried to use the coding standard that is proposed by Jeff Bay, Object calisthenics. I was reading about in an article, and when I discussed it with one of my colleagues, I wanted to give it a shot. So do not blame me, for doing such big and uncomfortable looking like code, just be aware of these simple coding guide lines, that Jeff Bay recomend:
+The code seems to be weired and undhandy and you are probably thinking, their are better ways to do so. However, we tried to use the coding standard that is proposed by Jeff Bay, Object calisthenics. We were reading about this sheme in an article, and when we discussed it, we wanted to give it a shot. So do not blame us, for doing such big and uncomfortable looking like code, just be aware of these simple coding guide lines, that Jeff Bay recomends and that we are using currently (even if we are not able to catch up with all of these):
 
 1. One level of indentation per method
 2. Don’t use the ELSE keyword
@@ -16,12 +16,12 @@ The code seems to be weired and undhandy and you are probably thinking, their ar
 except for this and me
 6. Don’t abbreviate
 7. Keep all entities small
-This means no class over 50 lines and no package over 10 files. (I am a messy programmer, lots of comments, lots of other stuff, so I am actually trying to keep them under 100 lines of code)
+This means no class over 50 lines and no package over 10 files. 
 8. No classes with more than two instance variables
 This will be hard
 9. No getters/setters/properties
 
-However, when you look into my commit history, you will recognize, I did not used this coding style from the beginning of my project. So now (01/09/14) I am **trying** to do it.
+However, when you look into out commit history, you will recognize, we did not used this coding style from the beginning of our project. So now (01/09/14) we are  **trying** to do it this way.
 
 Sources:
 [Object Calisthenics by Jeff  Bay at helsinki.fi](www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf)
